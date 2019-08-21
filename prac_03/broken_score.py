@@ -6,12 +6,19 @@ Program to determine score status
 def main():
     score = float(input("Enter score: "))
     while score < 0 or score > 100:
-        score = float(input("Enter a valid score: ""))
+        score = float(input("Enter a valid score: "))
+    status = get_score_status(score)
+    print(status)
+
+
+def get_score_status(score):
     if score >= 90:
-        print("Excellent")
+        status = "Excellent"
     elif score >= 50:
-        print("Passable")
+        status = "Passable"
     else:
-        print("Bad")
+        status = "Bad"
+    return status
+
 
 main()
