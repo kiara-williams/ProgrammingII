@@ -9,10 +9,10 @@ import random
 VOWELS = "aeiou"
 CONSONANTS = "bcdfghjklmnpqrstvwxyz"
 
-word_format = "ccvcvvc"
+word_format = str(input("Enter a string of characters using a-z")).lower()
 word = ""
 for kind in word_format:
-    if kind == "c":
+    if kind not in VOWELS:
         word += random.choice(CONSONANTS)
     else:
         word += random.choice(VOWELS)
