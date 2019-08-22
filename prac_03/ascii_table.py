@@ -1,3 +1,5 @@
+"""Program that converts characters to ascii and vice versa."""
+
 LOWER = 33
 UPPER = 127
 
@@ -8,16 +10,14 @@ def main():
     Enter T to print an ASCII table
     Enter Q to quit"""
     print(MENU)
-    selection = str(input("Enter your selection"))
-    selection = selection.upper()
+    selection = get_input()
     while selection != "Q":
         if selection == "A":
             character = str(input("Enter a character: "))
             char_code = ord(character)
             print("The ASCII code for {} is {}".format(character, char_code))
             print(MENU)
-            selection = str(input("Enter your selection"))
-            selection = selection.upper()
+            selection = get_input()
         elif selection == "C":
             char_loop_sentinel = False
             while char_loop_sentinel == False:
@@ -32,20 +32,25 @@ def main():
                     print("Invalid Option")
                 char_loop_sentinel = True
                 print(MENU)
-                selection = str(input("Enter your selection"))
-                selection = selection.upper()
+                selection = get_input()
         elif selection == "T":
             for i in range(LOWER, UPPER,1):
                 character = chr(i)
                 print("| {:>3} | {:^3s} |".format(i, character))
             print(MENU)
-            selection = str(input("Enter your selection"))
-            selection = selection.upper()
+            selection = get_input()
         else:
             print("Invalid Option. Please select from the menu")
             print(MENU)
-            selection = str(input("Enter your selection"))
-            selection = selection.upper()
+            selection = get_input()
     print("Exiting application. Goodbye")
+
+
+def get_input():
+    """Requests input and normalises it"""
+    selection = str(input("Enter your selection"))
+    selection = selection.upper()
+    return selection
+
 
 main()
