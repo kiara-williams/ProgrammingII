@@ -48,8 +48,7 @@ def main():
 
 def get_input():
     """Requests input and normalises it"""
-    selection = str(input("Enter your selection"))
-    selection = selection.upper()
+    selection = str(input("Enter your selection")).upper()
     return selection
 
 
