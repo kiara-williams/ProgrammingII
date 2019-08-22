@@ -19,15 +19,21 @@ def main():
             selection = str(input("Enter your selection"))
             selection = selection.upper()
         elif selection == "C":
-            char_code = int(input("Enter a number between {} and {}".format(LOWER, UPPER)))
-            if char_code >= LOWER and char_code <= UPPER:
-                character = chr(char_code)
-                print("The character for {} is {}".format(char_code, character))
-            else:
-                print("Invalid Option")
-            print(MENU)
-            selection = str(input("Enter your selection"))
-            selection = selection.upper()
+            char_loop_sentinel = False
+            while char_loop_sentinel == False:
+                try:
+                    char_code = int(input("Enter a number between {} and {}".format(LOWER, UPPER)))
+                    if char_code >= LOWER and char_code <= UPPER:
+                        character = chr(char_code)
+                        print("The character for {} is {}".format(char_code, character))
+                    else:
+                        print("Invalid Option")
+                except ValueError:
+                    print("Invalid Option")
+                char_loop_sentinel = True
+                print(MENU)
+                selection = str(input("Enter your selection"))
+                selection = selection.upper()
         elif selection == "T":
             for i in range(LOWER, UPPER,1):
                 character = chr(i)
