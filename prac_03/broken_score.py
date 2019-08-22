@@ -12,6 +12,7 @@ def main():
 
 
 def get_score_status(score):
+    """Select status using score"""
     if score >= 90:
         status = "Excellent"
     elif score >= 50:
