@@ -1,5 +1,5 @@
 """
-CP1404/CP5632 Practical
+CP1404/CP5632 Practical - Solved
 Debugging exercise: almost-working version of a CSV scores file program.
 The scores.csv file stores scores for each subject for 10 people.
 This code reads the lines into lists, saves the first line as a list of subject codes and
