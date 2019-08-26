@@ -29,6 +29,8 @@ def main():
             score_list.append(score[i])
             print(score[i])
         print("Max:", max(score_list))
+        print("Min:", min(score_list))
+        print("Average", sum(score_list)/10)
         print()
 
 
