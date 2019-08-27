@@ -1,3 +1,5 @@
+"""Program that asks for strings until an empty string is entered, and returns duplicate strings"""
+
 def main():
     string_list = []
     duplicate_strings = []
@@ -8,6 +10,7 @@ def main():
         input_string = str(input("Enter another string: ")).lower()
         if input_string != "":
             if input_string in string_list and input_string not in duplicate_strings:
+                """check if string already entered and if string is already duplicate"""
                 duplicate_strings.append(input_string)
             else:
                 string_list.append(input_string)
