@@ -9,12 +9,14 @@ def main():
         number_list.append(new_number)
         number_count += 1
     while new_number >= 0:
+        """infinite loop with negative number exit condition"""
         new_number = int(input("Number {}: ".format(number_count + 1)))
         if new_number >= 0:
+            """check that number is not exit number before adding to list for stats"""
             number_list.append(new_number)
             number_count += 1
-
     if not number_list:
+        """check for empty list"""
         print("No numbers were entered")
     else:
         list_average = sum(number_list) / number_count
