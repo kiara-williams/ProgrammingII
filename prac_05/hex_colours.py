@@ -1,4 +1,6 @@
-"""Program that returns hex colour for string"""
+"""Program that returns hex colour for string
+Was undecided whether or not to use uppercase characters in dict. Chose not to for increased matches
+with the input string."""
 
 HEX_COLOURS = {"aliceblue": "#f0f8ff", "blanchedalmond": "#ffebcd", "darkorchid": "9932cc", "dimgray": "#696969",
                "gainsboro": "#dcdcdc", "indianred": "#cd5c5c", "lawngreen": "#7cfc00", "mintcream": "#f5fffa",
