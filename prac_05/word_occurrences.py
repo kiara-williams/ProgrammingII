@@ -9,7 +9,10 @@ def main():
             words[word] = new_value
         else:
             words[word] = 1
-    print(words)
+    while len(words) > 0:
+        current_word = min(words)
+        print(current_word, words[current_word])
+        words.pop(current_word)
 
 
 main()
