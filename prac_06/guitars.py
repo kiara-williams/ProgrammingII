@@ -20,6 +20,7 @@ def main():
                                                                   vintage_string))
 
 def get_guitars(guitar_list):
+    """Requests the name, year and cost of guitars, prints and adds each to list"""
     name = input("Name: ")
     while name != "":
         year = int(input("Year: "))
