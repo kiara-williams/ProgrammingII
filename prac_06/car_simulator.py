@@ -11,6 +11,23 @@ q) quit"""
 def main():
     car_name = input("Enter your car name: ")
     my_car = Car(100, car_name)
-    print(my_car)
+    menu_choice = get_menu_choice()
+    while menu_choice != "q":
+        if menu_choice == "d":
+            #drive
+            menu_choice = get_menu_choice()
+        elif menu_choice == "r":
+            #refuel
+            menu_choice = get_menu_choice()
+        else:
+            print("Invalid choice")
+            print(MENU)
+            menu_choice = get_menu_choice()
+
+def get_menu_choice():
+    print(MENU)
+    menu_choice = input("Enter your choice: ").lower()
+    return menu_choice
+
 
 main()
