@@ -14,7 +14,10 @@ def main():
     menu_choice = get_menu_choice()
     while menu_choice != "q":
         if menu_choice == "d":
-            #drive
+            distance = int(input("How many km do you wish to drive? "))
+            while not validate_input(distance, "Distance"):
+                distance = int(input("How many km do you wish to drive? "))
+            my_car.drive(distance)
             menu_choice = get_menu_choice()
         elif menu_choice == "r":
             #refuel
@@ -24,10 +27,18 @@ def main():
             print(MENU)
             menu_choice = get_menu_choice()
 
+
 def get_menu_choice():
     print(MENU)
     menu_choice = input("Enter your choice: ").lower()
     return menu_choice
 
+
+def  validate_input(input, type):
+    if input < 0:
+        print("{} must be >= 0".format(type))
+        return False
+    else:
+        return True
 
 main()
