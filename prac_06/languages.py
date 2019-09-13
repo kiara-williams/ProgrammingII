@@ -11,4 +11,7 @@ def main():
     print(python)
     print(visual_basic)
 
+    language_list = [[ruby], [python], [visual_basic]]
+    print(language_list)
+
 main()
