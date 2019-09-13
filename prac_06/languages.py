@@ -12,10 +12,8 @@ def main():
     print(visual_basic)
 
     language_list = [ruby, python, visual_basic]
-    print(language_list)
 
     dynamic_languages = []
-
     for language in language_list:
         if language.is_dynamic():
             dynamic_languages.append(language.name)
