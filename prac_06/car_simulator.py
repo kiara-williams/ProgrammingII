@@ -42,6 +42,7 @@ def main():
 
 
 def get_menu_choice(car):
+    """Display car stats and menu, return user menu choice"""
     print("\n{}, fuel={}, odo={}".format(car.name, car.fuel, car.odometer))
     print(MENU)
     menu_choice = input("Enter your choice: ").lower()
@@ -49,6 +50,7 @@ def get_menu_choice(car):
 
 
 def validate_input(input_string, format_string):
+    """Take user input and confirm that it is a valid number"""
     if input_string < 0:
         print("{} must be >= 0".format(format_string))
         return False
