@@ -11,34 +11,49 @@ q) quit"""
 def main():
     car_name = input("Enter your car name: ")
     my_car = Car(100, car_name)
-    menu_choice = get_menu_choice()
+    menu_choice = get_menu_choice(my_car)
     while menu_choice != "q":
         if menu_choice == "d":
             distance = int(input("How many km do you wish to drive? "))
             while not validate_input(distance, "Distance"):
                 distance = int(input("How many km do you wish to drive? "))
-            my_car.drive(distance)
-            menu_choice = get_menu_choice()
+            if my_car.fuel < distance:
+                print("The car drove {}km and ran out of fuel".format(my_car.fuel))
+                my_car.drive(my_car.fuel)
+            else:
+                my_car.drive(distance)
+                if my_car.fuel == 0:
+                    refuel_needed = " and ran out of fuel."
+                else:
+                    refuel_needed = ""
+                print("The car drove {}km{}".format(distance, refuel_needed))
+            menu_choice = get_menu_choice(my_car)
         elif menu_choice == "r":
-            #refuel
-            menu_choice = get_menu_choice()
+            refuel = int(input("How many units of fuel do you want to add to the car? "))
+            while not validate_input(refuel, "Fuel amount"):
+                refuel = int(input("How many units of fuel do you want to add to the car?"))
+            my_car.add_fuel(refuel)
+            print("Added {} units of fuel".format(refuel))
+            menu_choice = get_menu_choice(my_car)
         else:
             print("Invalid choice")
             print(MENU)
-            menu_choice = get_menu_choice()
+            menu_choice = get_menu_choice(my_car)
 
 
-def get_menu_choice():
+def get_menu_choice(car):
+    print("\n{}, fuel={}, odo={}".format(car.name, car.fuel, car.odometer))
     print(MENU)
     menu_choice = input("Enter your choice: ").lower()
     return menu_choice
 
 
-def  validate_input(input, type):
-    if input < 0:
-        print("{} must be >= 0".format(type))
+def validate_input(input_string, format_string):
+    if input_string < 0:
+        print("{} must be >= 0".format(format_string))
         return False
     else:
         return True
+
 
 main()
