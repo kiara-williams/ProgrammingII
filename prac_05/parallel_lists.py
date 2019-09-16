@@ -8,4 +8,6 @@ birthday_dict = {}
 for i in range(len(names)):
     name = names[i]
     birthday_dict[name] = dates_of_birth[i]
+print(names)
+print(dates_of_birth)
 print(birthday_dict)
