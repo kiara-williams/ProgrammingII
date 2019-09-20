@@ -10,7 +10,7 @@ BoxLayout:
             Button:
                 id: up_button
                 text: 'Up'
-                on_press: app.add_one_value(float(input_miles.text))
+                on_press: app.increment_miles(1)
             Button:
                 id: down_button
                 text: 'Down'
