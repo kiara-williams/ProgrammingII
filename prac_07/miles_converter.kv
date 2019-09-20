@@ -10,9 +10,11 @@ BoxLayout:
             Button:
                 id: up_button
                 text: 'Up'
+                on_press: app.add_one_value(float(input_miles.text))
             Button:
                 id: down_button
                 text: 'Down'
+                on_press: app.subtract_one_value(float(input_miles.text))
     Button:
         text: 'Convert m to km'
         on_press: app.convert_miles(float(input_miles.text))
