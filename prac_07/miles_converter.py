@@ -10,7 +10,7 @@ class MileConverterApp(App):
 
     def convert_miles(self, value):
         result = value * 1.6
-        self.root.ids.output_label.text = str(result)
+        self.root.ids.output_label.text = "{:.2f}".format(result)
 
 
 MileConverterApp().run()

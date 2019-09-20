@@ -15,7 +15,8 @@ BoxLayout:
                 text: 'Down'
     Button:
         text: 'Convert m to km'
+        on_press: app.convert_miles(float(input_miles.text))
     Label:
         id: output_label
-        text: 'Test'
-        color: (240, 255, 0, 1)
+        text: ''
+        color: (1, 0, 0, 1)
