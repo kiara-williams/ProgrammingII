@@ -10,6 +10,10 @@ class UnreliableCar(Car):
 
     def drive(self, distance):
         if randint(0, 100) < self.reliability:
+            if distance > self.fuel:
+                distance = self.fuel
+                self.fuel = 0
+            else:
+                self.fuel -= distance
+            self.odometer += distance
             return distance
-        else:
-            return 0
