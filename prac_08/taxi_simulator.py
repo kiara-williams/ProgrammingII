@@ -12,8 +12,10 @@ def main():
     menu_selection = get_menu_choice()
     while menu_selection != 'q':
         if menu_selection == 'c':
+            print("Taxis Available: ")
             for i, taxi in enumerate(taxis):
-                print(i, taxi)
+                print("{} - {}".format(i, taxi))
+            current_taxi = None
             while current_taxi is None:
                 try:
                     taxi_selection = int(input("Choose taxi:"))
@@ -23,17 +25,21 @@ def main():
                 except IndexError:
                     print("That taxi is not in the list")
         else:
-            current_taxi.start_fare()
-            distance = 0
-            while distance == 0:
-                try:
-                    distance = int(input("Drive how far?"))
-                except ValueError:
-                    print("Distance must be a number")
-            current_taxi.drive(distance)
-            bill += current_taxi.get_fare()
-            print("Your {} trip cost you ${:.2f}".format(current_taxi.name, bill))
-        print(bill)
+            if current_taxi is None:
+                print("You need to select a taxi")
+            else:
+                current_taxi.start_fare()
+                distance = 0
+                while distance == 0:
+                    try:
+                        distance = int(input("Drive how far?"))
+                    except ValueError:
+                        print("Distance must be a number")
+                current_taxi.drive(distance)
+                fare_cost = current_taxi.get_fare()
+                bill += fare_cost
+                print("Your {} trip cost you ${:.2f}".format(current_taxi.name, fare_cost))
+        print("Bill to date: ${:.2f}".format(bill))
         menu_selection = get_menu_choice()
 
 
