@@ -13,8 +13,7 @@ def main():
     while menu_selection != 'q':
         if menu_selection == 'c':
             print("Taxis Available: ")
-            for i, taxi in enumerate(taxis):
-                print("{} - {}".format(i, taxi))
+            print_taxis(taxis)
             current_taxi = None
             while current_taxi is None:
                 try:
@@ -41,6 +40,8 @@ def main():
                 print("Your {} trip cost you ${:.2f}".format(current_taxi.name, fare_cost))
         print("Bill to date: ${:.2f}".format(bill))
         menu_selection = get_menu_choice()
+    print("Total trip cost: ${:.2f}\nTaxis are now:".format(bill))
+    print_taxis(taxis)
 
 
 def get_menu_choice():
@@ -51,6 +52,11 @@ def get_menu_choice():
         print(MENU)
         user_input = input(">>>").lower()
     return user_input
+
+
+def print_taxis(taxi_list):
+    for i, taxi in enumerate(taxi_list):
+        print("{} - {}".format(i, taxi))
 
 
 main()
