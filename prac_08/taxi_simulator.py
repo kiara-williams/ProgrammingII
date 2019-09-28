@@ -24,9 +24,15 @@ def main():
                     print("That taxi is not in the list")
         else:
             current_taxi.start_fare()
-            distance = int(input("Drive how far?"))
+            distance = 0
+            while distance == 0:
+                try:
+                    distance = int(input("Drive how far?"))
+                except ValueError:
+                    print("Distance must be a number")
             current_taxi.drive(distance)
             bill += current_taxi.get_fare()
+            print("Your {} trip cost you ${:.2f}".format(current_taxi.name, bill))
         print(bill)
         menu_selection = get_menu_choice()
 
