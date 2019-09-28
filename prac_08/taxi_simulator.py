@@ -3,6 +3,7 @@ from prac_08.taxi import Taxi
 
 MENU = "q)uit, c)hoose taxi, d)rive"
 
+
 def main():
     taxis = [Taxi("Prius", 100), SilverServiceTaxi("Limo", 100, 2), SilverServiceTaxi("Hummer", 200, 4)]
     bill = 0
@@ -11,21 +12,21 @@ def main():
     menu_selection = get_menu_choice()
     while menu_selection != 'q':
         if menu_selection == 'c':
-            for taxi in taxis:
-                print(taxi)
+            for i, taxi in enumerate(taxis):
+                print(i, taxi)
             while current_taxi is None:
                 try:
                     taxi_selection = int(input("Choose taxi:"))
+                    current_taxi = taxis[taxi_selection]
                 except ValueError:
                     print("You need to enter a number")
-                    taxi_selection = int(input("Choose taxi:"))
                 except IndexError:
                     print("That taxi is not in the list")
-                    taxi_selection = int(input("Choose taxi:"))
-                current_taxi = taxis[taxi_selection]
         else:
-            # finish
-
+            current_taxi.start_fare()
+            distance = int(input("Drive how far?"))
+            current_taxi.drive(distance)
+            bill += current_taxi.get_fare()
         print(bill)
         menu_selection = get_menu_choice()
 
@@ -38,3 +39,6 @@ def get_menu_choice():
         print(MENU)
         user_input = input(">>>").lower()
     return user_input
+
+
+main()
