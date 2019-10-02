@@ -1,12 +1,19 @@
-"""WEKA Reader for J48 Pre-formatted tree. I hate it too."""
+"""WEKA Reader for J48 tree - Kiara Williams
+Takes tree as txt file and returns attribute count in order of significance.
+Download WEKAfile.txt for a demonstration.
+I hate it slightly less now."""
 
 import operator
 
+FILE = 'WEKAfile.txt'
+
+
 def main():
     attributes = {}
-    in_file = open('WEKAmodel.txt', 'r')
+    in_file = open(FILE, 'r')
     for line in in_file:
-        line.strip()
+        line = line.replace("|", '')
+        line = line.strip()
         try:
             current_attribute, waste = line.split('<=')
         except:
