@@ -13,7 +13,7 @@ def main():
     in_file = open(FILE, 'r')
     for line in in_file:
         line = line.replace("|", '')
-        line = line.strip().lstrip()
+        line = line.strip()
         try:
             current_attribute, waste = line.split('<=')
         except:
