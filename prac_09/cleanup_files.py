@@ -8,7 +8,20 @@ import os
 
 def get_fixed_filename(filename):
     """Return a 'fixed' version of filename."""
-    new_name = filename.replace(" ", "_").replace(".TXT", ".txt")
+    new_name = ""
+    for i, char in enumerate(filename):
+        if i == 0 and (char.islower() or char.isupper()):
+            char = char.upper()
+            new_name += char
+        # This section is problematic for files that are already spaced and capitalised
+        elif char.isupper():
+            new_name = new_name + "_" + char
+        elif char == " ":
+            new_name += "_"
+        elif char == "_":
+            pass
+        else:
+            new_name += char
     return new_name
 
 
